@@ -15,7 +15,7 @@ export class JugadoresModelService {
   selectedJugador: JugadoresModel;
   jugadores: JugadoresModel[];
 
-  readonly baseURL = 'http://localhost:3000/futbolito';
+  readonly baseURL = 'https://polar-dusk-22981.herokuapp.com/futbolito';//http://localhost:3000/futbolito
 
   constructor(private http : HttpClient) { }
 

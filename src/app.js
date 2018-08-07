@@ -1,11 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const cors = require('cors');
 
 const app = express();
-mongoose.connect('mongodb://heroku_nssn5tg2:uml01kokbsq74pi78hcsb63sk7@ds147589.mlab.com:47589/heroku_nssn5tg2')
+mongoose.connect('mongodb://heroku_nssn5tg2:uml01kokbsq74pi78hcsb63sk7@ds147589.mlab.com:47589/heroku_nssn5tg2') //mongodb://localhost:27017/futbolito
     .then(db => console.log('BD esta conectada'))
     .catch(err => console.error(err));
 //settings
