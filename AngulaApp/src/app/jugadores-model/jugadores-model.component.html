@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+            <div class="col s5">
+              <form #jugadorForm="ngForm" (ngSubmit)="onSubmit(jugadorForm)">
+                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="jugadorService.selectedJugador._id">
+                  <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="nombre" #name="ngModel" [(ngModel)]="jugadorService.selectedJugador.nombre" placeholder="Ingrese su nombre" required>
+                        <label>Nombre :
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="cedula" #name="ngModel" [(ngModel)]="jugadorService.selectedJugador.cedula" placeholder="Ingrese su cédula" required>
+                          <label>Cédula :
+                            <!--<label class="red-text">*</label>-->
+                          </label>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="posicion" #name="ngModel" [(ngModel)]="jugadorService.selectedJugador.posicion" placeholder="Ingrese su posición" required>
+                          <label>Posición :
+                            <!--<label class="red-text">*</label>-->
+                          </label>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="numeroCamiseta" #name="ngModel" [(ngModel)]="jugadorService.selectedJugador.numeroCamiseta" placeholder="Ingrese su número de camiseta" required>
+                          <label>Número de Camiseta :
+                            <!--<label class="red-text">*</label>-->
+                          </label>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="equipo" #name="ngModel" [(ngModel)]="jugadorService.selectedJugador.equipo" placeholder="Ingrese su equipo" required>
+                          <label>Equipo :
+                            <!--<label class="red-text">*</label>-->
+                          </label>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="fechaNacimiento" #name="ngModel" [(ngModel)]="jugadorService.selectedJugador.fechaNacimiento" placeholder="Ingrese su fecha de nacimiento" required>
+                        <label>Fecha de Nacimiento :
+                          <!--<label class="red-text">*</label>-->
+                        </label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(jugadorForm)">Limpiar</button>
+                        <button class="btn btn-custom right" type="submit" [disabled]="!jugadorForm.valid">Enviar</button>
+                      </div>
+                    </div>
+              </form>
+            </div>
+            <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Cédula</th>
+                        <th>Posición</th>
+                        <th>Número de Camiseta</th>
+                        <th>Equipo</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let jug of jugadorService.jugadores">
+                      <td>{{jug.nombre}}</td>
+                      <td>{{jug.cedula}}</td>
+                      <td>{{jug.posicion}}</td>
+                      <td>{{jug.numeroCamiseta}}</td>
+                      <td>{{jug.equipo}}</td>
+                      <td>{{jug.fechaNacimiento}}</td>
+                      <td>
+                          <a class="action-btn" (click)="onEdit(jug)">
+                            <i class="material-icons">edit</i>
+                          </a>
+                          <a class="action-btn" (click)="onDelete(jug._id,jugadorForm)">
+                            <i class="material-icons">delete</i>
+                          </a>
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
